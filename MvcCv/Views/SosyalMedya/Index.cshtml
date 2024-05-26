@@ -1,0 +1,69 @@
+﻿@using MvcCv.Models.Entity;
+@model List<TblSosyalMedya>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{ 
+    string durum = "";
+}
+<br />
+<h2>Sosyal Medya Hesap Listem</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Sosyal Medya Adı</th>
+        <th>Link</th>
+        <th>İkon</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.Durum==true)
+        {
+            durum = "Aktif";
+        }
+        else
+        {
+            durum = "Pasif";
+        }
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Ad</td>
+            <td>@item.Link</td>
+            <td>@item.ikon</td>
+            <td>@item.Durum</td>
+            <td><a href="/SosyalMedya/SosyalMedyaSil/@item.ID" class="btn btn-danger">Kaldır</a></td>
+            <td><a href="/SosyalMedya/SosyalMedyaDuzenle/@item.ID" class="btn btn-success">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<button class="btn btn-info" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Hesabı Ekle</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sosyal Medya Ekleme Penceresi</h2>
+            </div>
+            <form action="/SosyalMedya/SosyalMedyaEkle" method="post">
+                <div class="modal-body">
+                    <label>Sosyal Medya İsmi</label>
+                    <input type="text" name="Ad" class="form-control" />
+                    <br /><label>Sosyal Medya Link</label>
+                    <input type="text" name="Link" class="form-control" />
+                    <br />
+                    <label>İkon Değeri</label>
+                    <input type="text" name="ikon" class="form-control" />
+                    <br />
+                    <label>Durum</label>
+                    <input type="text" name="Durum" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿@using MvcCv.Models.Entity;
+@model List<TblHobilerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hobilerim</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Hobi</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Aciklama1</td>
+            <td><a href="/Hobi/HobiSil/@item.ID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<a href="/Hobi/HobiEkle" class="btn btn-primary">Yeni Hobi Ekle</a>
+
