@@ -67,7 +67,6 @@ Uygulamayı tarayıcınızda açarak kullanabilirsiniz. Admin paneline erişmek 
 Sorularınız veya geri bildirimleriniz için lütfen benimle iletişime geçin:
 
 - **E-posta:** berkay.kalinn@gmail.com
-- **GitHub:** [berkaykalin](https://github.com/berkaykalin)
 
 ## Ekran Görüntüleri
 
